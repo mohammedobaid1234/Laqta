@@ -8,7 +8,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">Categories</span>
+            <span class="card-label font-weight-bolder text-dark">{{$page_title}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm">More than 400+ new members</span>
         </h3>
         <div class="card-toolbar">
@@ -134,7 +134,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            <a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
+                            <a href="{{route('categories.edit',$category->id)}}" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">

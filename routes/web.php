@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProjectsController;
+use App\Http\Controllers\Admin\RulesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +31,6 @@ Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search')
 Route::prefix('admins')->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('projects', ProjectsController::class);
-    Route::resource('rules', ProjectsController::class);
-
+    Route::resource('rules', RulesController::class);
 });
 require __DIR__ . '/auth.php';

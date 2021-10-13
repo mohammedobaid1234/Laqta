@@ -6,13 +6,13 @@
 <div class="card card-custom">
     <div class="card-header">
      <h3 class="card-title">
-      Add Category
+      Edit rule
      </h3>
     </div>
     <!--begin::Form-->
-    <form method="POST" action="{{route('rules.edit')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route('rules.update',$rule->id)}}">
         @csrf
-        @method('put')
+        @method('PUT')
         @include('admins.rules._form' ,[
           'button'=> 'Update'
         ])
@@ -27,6 +27,7 @@
 @section('scripts')
     <script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/pages/widgets.js')}}"></script>
+    <script src="{{ asset('js/pages/crud/forms/widgets/bootstrap-switch.js')}}"></script>
     <script>
         var avatar2 = new KTImageInput('kt_image_2');
 

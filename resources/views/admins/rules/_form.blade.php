@@ -11,20 +11,19 @@
     <div class="form-group row">
      <label  class="col-2 col-form-label">Rule name</label>
      <div class="col-10">
-      <input name="name" class="form-control" type="text" value="{{$rule->name}}" id="example-text-input"/>
+      <input name="name" class="form-control" type="text" value="{{$rule->name ?? ''}}" id="example-text-input"/>
      </div>
     </div>
 
-    <div class="form-group">
-        @foreach (config('abilities') as $key=>$value)
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="abilities[]" value="{{$key}}" @if(in_array($key , $rule->abilities ?? [])) checked @endif >
-          <label class="form-check-label" for="flexCheckDefault">
-            {{$value}}
-          </label>
-        </div>
-        @endforeach
+    @foreach (config('abilities') as $key=>$value)
+    <div class="form-group row">
+      <label class="col-3 col-form-label">{{$value}}</label>
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <input data-switch="true" type="checkbox" name="abilities[]" value="{{$key}}" @if(in_array($key , $rule->abilities ?? [])) checked="checked" @endif />
       </div>
+    </div>
+    
+   @endforeach
       
     
     <div class="form-group row">
@@ -43,7 +42,7 @@
                 </label>
                 
             </div>
-            <span class="form-text text-muted">Some help text goes here</span>
+           
         </div>
     </div>
 
@@ -59,3 +58,5 @@
      </div>
     </div>
    </div>
+
+

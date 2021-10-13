@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('secondary');
-            $table->unsignedInteger('number');
+            $table->unsignedInteger('number')->default(0)->unique();
             $table->text('description');
             $table->unsignedInteger('year');
             $table->enum('status', ['Active', 'Draft']);

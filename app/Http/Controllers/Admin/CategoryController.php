@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $page_title = 'Datatables';
+        $page_title = 'Categories';
         $page_description = 'This is datatables test page';
         $categories = Category::orderBy('created_at', 'ASC')
             ->orderBy('name', 'DESC')
@@ -86,12 +86,16 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        Gate::authorize('categories.update');
-
+        //Gate::authorize('categories.update');
+        $page_title = 'Edit a Category';
         $category = Category::findorfail($id);
         $categories = Category::where('status', '=', 'Active')->get();
 
-        return view('admins.categories.edit', ['categories' => $categories, 'category' => $category]);
+        return view('admins.categories.edit', [
+            'categories' => $categories,
+            'category' => $category,
+            'page_title' => $page_title,
+        ]);
     }
 
     /**
@@ -103,8 +107,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Gate::authorize('categories.update');
 
+        //Gate::authorize('categories.update');
         $request->validate(Category::validateRule($id));
         $category = Category::find($id);
 

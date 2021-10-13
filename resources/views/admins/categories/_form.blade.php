@@ -9,7 +9,7 @@
     </div>
     <div class="form-group row">
     <label  class="col-2 col-form-label">Image</label>
-    <div class="image-input" id="kt_image_2">
+    <div class="image-input col-2" id="kt_image_2">
         <div class="image-input-wrapper" style="background-image: url({{asset('media/users/blank.png')}})"></div>
        
         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
@@ -22,30 +22,23 @@
          <i class="ki ki-bold-close icon-xs text-muted"></i>
         </span>
        </div>
-    <div class="form-group row">
-     <label  class="col-2 col-form-label">Category Name</label>
-     <div class="col-10">
-      <input name="name" class="form-control" type="text" value="{{$category->name}}" id="example-text-input"/>
-     </div>
-    </div>
-    <div class="form-group row">
-     <label for="example-search-input" class="col-2 col-form-label">Small Description</label>
-     <div class="col-10">
-      <input name="description" class="form-control" type="search" value="{{$category->description}}" id="example-search-input"/>
-     </div>
-    </div>
-    
-    
-    <div class="form-group row">
-     <label for="example-url-input" class="col-2 col-form-label">URL</label>
-     <div class="col-10">
-      <input name="url" class="form-control" type="url" value="{{$category->url}}" id="example-url-input"/>
-     </div>
-    </div>
+       <div class="form-group row">
+        <label  class="col-2 col-form-label">Category Name</label>
+        <div  class="col-10">
+         <input id="kt_maxlength_1" name="name" class="form-control" type="text" maxlength="25" value="{{$category->name}}" id="example-text-input"/>
+        </div>
+       </div>
+       
+       <div class="form-group row">
+           <label for="example-search-input" class="col-2 col-form-label">small descriptions</label>
+           <div class="col-10" style="position: relative;">
+               <textarea name="description" class="form-control" id="kt_maxlength_5_modal" maxlength="50" placeholder="" rows="6">{{$category->description}}</textarea>
+           </div>
+       </div>
     
     <div class="form-group row">
-        <label class="col-3 col-form-label">State</label>
-        <div class="col-9 col-form-label">
+        <label class="col-2 col-form-label">State</label>
+        <div class="col-10">
             <div class="radio-inline">
                 <label class="radio radio-danger">
                     <input type="radio" value="Active" name="status" checked="checked"/>
@@ -59,23 +52,10 @@
                 </label>
                 
             </div>
-            <span class="form-text text-muted">Some help text goes here</span>
         </div>
     </div>
 
-    <div class="form-group row">
-     <label for="example-color-input" class="col-2 col-form-label">Color</label>
-     <div class="col-10">
-      <input name="color" class="form-control" type="color" value="{{$category->url}}" id="example-color-input"/>
-     </div>
-    </div>
-    <div class="form-group row">
-     <label for="example-email-input" class="col-2 col-form-label">Range</label>
-     <div class="col-10">
-      <input name="range" class="form-control" type="range" value="{{$category->url}}" />
-     </div>
-    </div>
-   </div>
+   
    <div class="card-footer">
     <div class="row">
      <div class="col-2">

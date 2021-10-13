@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class Category extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'slug', 'description', 'image', 'color', 'status', 'range'];
+    protected $fillable = ['name', 'slug', 'description', 'image', 'status'];
 
 
     public function Projects()

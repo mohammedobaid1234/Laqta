@@ -16,7 +16,7 @@ class CreateRuleUserTable extends Migration
         Schema::create('rule_user', function (Blueprint $table) {
             $table->foreignId('rule_id')->constrained('rules', 'id')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
-            $table->primary(['role_id', 'user_id']);
+            $table->primary(['rule_id', 'user_id']);
         });
     }
 

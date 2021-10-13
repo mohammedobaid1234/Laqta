@@ -9,11 +9,10 @@ use Illuminate\Support\Str;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'slug', 'secondary', 'number', 'description', 'image', 'status', 'category_id'];
+    protected $fillable = ['name', 'slug', 'secondary', 'number', 'description', 'image', 'status', 'year', 'category_id'];
 
     public static function booted()
     {
-
         static::creating(function (Project $project) {
             $project->slug = Str::slug($project->name);
             $project->number = 1;
@@ -34,7 +33,7 @@ class Project extends Model
             'image' => 'nullable',
             'secondary' => 'required',
             'status' => 'required|in:Active,Draft',
-            'range' => 'nullable',
+            'year' => 'required',
             'category_id' => 'required',
             'number' => 'required',
 

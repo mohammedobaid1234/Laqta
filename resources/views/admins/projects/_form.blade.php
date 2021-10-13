@@ -22,10 +22,10 @@
     <div class="form-group row">
         <label class="col-2 col-form-label">Category </label>
         <div class="col-10">
-            <select class="form-control selectpicker" data-size="7" data-live-search="true">
+            <select name="category_id" class="form-control selectpicker" data-size="7" data-live-search="true">
                 <option value="">Select</option>
                 @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option> 
+                <option @if ($category->id == $project->category_id) selected @endif value="{{$category->id}}">{{$category->name}}</option> 
                 @endforeach
             </select>
             <span class="form-text text-muted">you can select any category </span>
@@ -48,14 +48,14 @@
     <div class="form-group row">
         <label for="example-search-input" class="col-2 col-form-label">Descriptions</label>
         <div class="col-10" style="position: relative;">
-            <textarea name="description" class="form-control" id="kt_maxlength_5_modal" maxlength="150" placeholder="" rows="6"></textarea>
+            <textarea name="description" class="form-control" id="kt_maxlength_5_modal" maxlength="150" placeholder="" rows="6">{{$project->description}}</textarea>
         </div>
     </div>
 
     <div class="form-group row">
         <label class="col-2 col-form-label">Year</label>
         <div class="col-10">
-            <input name="year" class="form-control" id="kt_maxlength_3" maxlength="4" placeholder="" type="number" />
+            <input name="year" class="form-control" id="kt_maxlength_3" maxlength="4" placeholder="" type="number" value="{{$project->year}}" />
         </div>
     </div>
     <div class="form-group row">

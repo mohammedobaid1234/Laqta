@@ -326,68 +326,30 @@
                                 <i class="menu-bullet menu-bullet-line">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">Support Center</span>
+                                <span class="menu-text">Rules</span>
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="menu-submenu">
                                 <i class="menu-arrow"></i>
                                 <ul class="menu-subnav">
+                                   
                                     <li class="menu-item" aria-haspopup="true">
-                                        <a href="custom/apps/support-center/home-1.html" class="menu-link">
+                                        <a href="{{route('rules.index')}}" class="menu-link">
                                             <i class="menu-bullet menu-bullet-dot">
                                                 <span></span>
                                             </i>
-                                            <span class="menu-text">Home 1</span>
+                                            <span class="menu-text">Show Rules</span>
                                         </a>
                                     </li>
                                     <li class="menu-item" aria-haspopup="true">
-                                        <a href="custom/apps/support-center/home-2.html" class="menu-link">
+                                        <a href="{{route('rules.create')}}" class="menu-link">
                                             <i class="menu-bullet menu-bullet-dot">
                                                 <span></span>
                                             </i>
-                                            <span class="menu-text">Home 2</span>
+                                            <span class="menu-text">Add Rules</span>
                                         </a>
                                     </li>
-                                    <li class="menu-item" aria-haspopup="true">
-                                        <a href="custom/apps/support-center/faq-1.html" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">FAQ 1</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item" aria-haspopup="true">
-                                        <a href="custom/apps/support-center/faq-2.html" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">FAQ 2</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item" aria-haspopup="true">
-                                        <a href="custom/apps/support-center/faq-3.html" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">FAQ 3</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item" aria-haspopup="true">
-                                        <a href="custom/apps/support-center/feedback.html" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">Feedback</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item" aria-haspopup="true">
-                                        <a href="custom/apps/support-center/license.html" class="menu-link">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">License</span>
-                                        </a>
-                                    </li>
+                                   
                                 </ul>
                             </div>
                         </li>

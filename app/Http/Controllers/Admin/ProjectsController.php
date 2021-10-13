@@ -16,10 +16,15 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $page_title = 'Datatables';
+        $page_title = 'Projects';
         $page_description = 'This is datatables test page';
+        $projects = Project::all();
+        return view('admins.projects.index', [
+            'page_title' => $page_title,
+            'page_description' => $page_description,
+            'projects' => $projects
 
-        return view('admins.projects.index', ['page_title' => $page_title, 'page_description' => $page_description]);
+        ]);
     }
 
     /**
@@ -49,8 +54,8 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request->all());
-       // $request->validate(Project::validateRule());
+        // dd($request->all());
+        $request->validate(Project::validateRule());
         $input = $request->all();
         if ($request->hasFile('image')) {
             $image_path = $request->file('image')->store('uploads', 'public');
@@ -79,7 +84,12 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::findorfail($id);
+        $categories = Category::where('status', '=', 'Active')->get(['id', 'name']);
+        return view('admins.projects.edit', [
+            'project' => $project,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -91,7 +101,15 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(Project::validateRule());
+        $project = Project::findorfail($id);
+        $input = $request->all();
+        if ($request->hasFile('image')) {
+            $image_path = $request->file('image')->store('uploads', 'public');
+            $input['image'] = $image_path;
+        }
+        $project->update($input);
+        return redirect()->route('projects.index');
     }
 
     /**

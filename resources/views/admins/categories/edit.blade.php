@@ -10,7 +10,7 @@
      </h3>
     </div>
     <!--begin::Form-->
-    <form method="POST" action="{{route('categories.edit')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route('categories.update' ,$category->id)}}" enctype="multipart/form-data">
         @csrf
         @method('put')
         @include('admins.categories._form' ,[
@@ -27,6 +27,7 @@
 @section('scripts')
     <script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/pages/widgets.js')}}"></script>
+    <script src="{{asset('js/pages/crud/forms/widgets/bootstrap-maxlength.js')}}"></script>
     <script>
         var avatar2 = new KTImageInput('kt_image_2');
 
