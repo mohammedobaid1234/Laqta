@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ClientsController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\RulesController;
 use Illuminate\Support\Facades\Route;
@@ -29,8 +30,15 @@ Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search')
 
 
 Route::prefix('admins')->group(function () {
-    Route::resource('categories', CategoryController::class);
-    Route::resource('projects', ProjectsController::class);
-    Route::resource('rules', RulesController::class);
+
+
+    Route::prefix('applications')->group(function () {
+        Route::resource('categories', CategoryController::class);
+        Route::resource('projects', ProjectsController::class);
+        Route::resource('rules', RulesController::class);
+    });
+    Route::prefix('pages')->group(function () {
+        Route::resource('clients', ClientsController::class);
+    });
 });
 require __DIR__ . '/auth.php';
