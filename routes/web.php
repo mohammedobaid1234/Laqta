@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -41,4 +41,6 @@ Route::prefix('admins')->group(function () {
         Route::resource('clients', ClientsController::class);
     });
 });
+//ddddd
+
 require __DIR__ . '/auth.php';
