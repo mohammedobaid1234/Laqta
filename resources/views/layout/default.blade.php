@@ -66,5 +66,6 @@ License: You must have a valid license purchased only from themeforest(the above
         @yield('scripts')
 
     </body>
+    <script src="{{asset('js/alert.js')}}"></script>
 </html>
 
