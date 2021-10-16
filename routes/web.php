@@ -4,6 +4,12 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ClientsController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\RulesController;
+use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\SocialsController;
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\ServicesController as ControllersServicesController;
+use App\Http\Controllers\Website\HomeHeadersController;
+use App\Models\Social;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +27,15 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/', function () {
+    $socials = Social::all();
+    return view('front.home.home', [
+        'socials' => $socials
+    ]);
+})->name('index');
+Route::post('contacts', [ContactsController::class, 'store'])->name('contacts.store');
+Route::get('services', [ControllersServicesController::class, 'index'])->name('services.index');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -35,12 +50,19 @@ Route::prefix('admins')->group(function () {
     Route::prefix('applications')->group(function () {
         Route::resource('categories', CategoryController::class);
         Route::resource('projects', ProjectsController::class);
+        Route::resource('services', ServicesController::class);
+        Route::resource('socials', SocialsController::class);
         Route::resource('rules', RulesController::class);
     });
     Route::prefix('pages')->group(function () {
         Route::resource('clients', ClientsController::class);
     });
 });
-//ddddd
 
+Route::prefix('home')
+->as('home.')
+->group(function () {
+    // home/header/
+    Route::resource('header', HomeHeadersController::class);
+});
 require __DIR__ . '/auth.php';

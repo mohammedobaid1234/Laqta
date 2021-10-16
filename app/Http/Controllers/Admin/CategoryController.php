@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $page_title = 'Categories';
-        $page_description = 'This is datatables test page';
+        $page_description = 'This is databases test page';
         $categories = Category::orderBy('created_at', 'ASC')
             ->orderBy('name', 'DESC')
             ->latest()
@@ -38,7 +38,7 @@ class CategoryController extends Controller
     public function create()
     {
         $page_title = 'Create New Category';
-        $page_description = 'This is datatables test page';
+        $page_description = 'This is databases test page';
         $category = new Category();
         return view('admins.categories.create', [
             'page_title' => $page_title,
@@ -88,7 +88,7 @@ class CategoryController extends Controller
     {
         //Gate::authorize('categories.update');
         $page_title = 'Edit a Category';
-        $category = Category::findorfail($id);
+        $category = Category::findOrFail($id);
         $categories = Category::where('status', '=', 'Active')->get();
 
         return view('admins.categories.edit', [
